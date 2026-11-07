@@ -45,6 +45,10 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
 * [magicblock-labs/magicblock-engine#166](https://github.com/magicblock-labs/magicblock-engine/issues/166) transient account kept a stale prefix after resolving to a larger image
 * [flop-labs/yellowpaper](https://github.com/flop-labs/yellowpaper/issues?q=is%3Aissue+author%3Aerkancamli) spec errata and ambiguities, several corrected in the paper
 
+**Writing**
+
+* [Two false claims, one accepted batch](https://github.com/erkancamli/erkancamli/blob/main/writeups/jolt-batch-opening-binding.md): a Fiat-Shamir contract gap in Jolt's batch openings, how I built the forgery through the public API, and why the maintainers fixed the contract instead of the transcript
+
 **Things I built**
 
 * [Gossip Siege](https://github.com/erkancamli/gossip-siege): fan made tower defense game for the Optimum community, where coded shields only break under independent shards. [gossipsiege.xyz](https://gossipsiege.xyz)
