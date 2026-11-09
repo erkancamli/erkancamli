@@ -9,6 +9,12 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
   [#1063](https://github.com/ProjectOpenSea/seaport-js/pull/1063) drop expired orders from a batch fulfill instead of failing it
 * **helius-labs/helius-sdk** (TypeScript)
   [#389](https://github.com/helius-labs/helius-sdk/pull/389) make ws.close() end the standard subscriptions
+* **helius-labs/helius-rust-sdk** (Rust)
+  [#247](https://github.com/helius-labs/helius-rust-sdk/pull/247) simulate and preflight smart transactions at the blockhash's commitment
+* **relayprotocol/relay-kit** (TypeScript)
+  [#1144](https://github.com/relayprotocol/relay-kit/pull/1144) stop signature step polling on failure or refund ·
+  [#1145](https://github.com/relayprotocol/relay-kit/pull/1145) fail when a Tron broadcast is rejected ·
+  [#1175](https://github.com/relayprotocol/relay-kit/pull/1175) mark the signature step item as failed when the check fails
 * **a16z/jolt** (Rust)
   [#1874](https://github.com/a16z/jolt/pull/1874) make the stack canary check match the linker layout ·
   [#1877](https://github.com/a16z/jolt/pull/1877) resolve ELF symbol names via the symtab's sh_link ·
@@ -29,6 +35,8 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
   [#5239](https://github.com/wevm/viem/pull/5239) substitute ERC-1155 token ID as hex in getEnsAvatar metadata URIs ·
   [#5244](https://github.com/wevm/viem/pull/5244) guard consumed nonce 0 in the nonceManager stale-source check ·
   [#5367](https://github.com/wevm/viem/pull/5367) accept an EIP-7702 authorization yParity above 1 in parseTransaction (landed in [#5371](https://github.com/wevm/viem/pull/5371))
+* **wevm/ox** (TypeScript)
+  [#574](https://github.com/wevm/ox/pull/574) keep the EIP-7702 initCode marker in UserOperation.toPacked (landed in [#593](https://github.com/wevm/ox/pull/593))
 * **ethereum/execution-specs** (Python)
   [#3760](https://github.com/ethereum/execution-specs/pull/3760) keep base fee change gas within the parent gas limit
 * **flop-labs/technocore-chat** (Python)
@@ -44,6 +52,11 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
 * [a16z/jolt#1864](https://github.com/a16z/jolt/issues/1864) HomomorphicBatch drew its RLC challenge without binding the commitments
 * [magicblock-labs/magicblock-engine#166](https://github.com/magicblock-labs/magicblock-engine/issues/166) transient account kept a stale prefix after resolving to a larger image
 * [flop-labs/yellowpaper](https://github.com/flop-labs/yellowpaper/issues?q=is%3Aissue+author%3Aerkancamli) spec errata and ambiguities, several corrected in the paper
+
+**Review findings that landed**
+
+* [wevm/viem#5436](https://github.com/wevm/viem/pull/5436): ENSIP-11 EVM coin types still lost the leading zeros of an address; the fix was extended to them in [#5442](https://github.com/wevm/viem/pull/5442)
+* [wevm/ox#502](https://github.com/wevm/ox/pull/502): an indexed bytes32 argument skipped the length check and short values were padded; fixed before it landed in [#588](https://github.com/wevm/ox/pull/588)
 
 **Writing**
 
