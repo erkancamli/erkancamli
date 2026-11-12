@@ -4,17 +4,28 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
 
 **Merged fixes**
 
+* **x402-foundation/x402** (TypeScript, Python)
+  [#4225](https://github.com/x402-foundation/x402/pull/4225) skip fully charged channels in batch-settlement refunds ·
+  [#4227](https://github.com/x402-foundation/x402/pull/4227) strip the internal Settlement-Overrides header when the handler fails
 * **ProjectOpenSea/seaport-js** (TypeScript)
   [#1057](https://github.com/ProjectOpenSea/seaport-js/pull/1057) pass fulfillOrder extraData to the zone instead of dropping it (landed in [#1058](https://github.com/ProjectOpenSea/seaport-js/pull/1058)) ·
   [#1063](https://github.com/ProjectOpenSea/seaport-js/pull/1063) drop expired orders from a batch fulfill instead of failing it
 * **helius-labs/helius-sdk** (TypeScript)
   [#389](https://github.com/helius-labs/helius-sdk/pull/389) make ws.close() end the standard subscriptions
 * **helius-labs/helius-rust-sdk** (Rust)
-  [#247](https://github.com/helius-labs/helius-rust-sdk/pull/247) simulate and preflight smart transactions at the blockhash's commitment
+  [#247](https://github.com/helius-labs/helius-rust-sdk/pull/247) simulate and preflight smart transactions at the blockhash's commitment ·
+  [#248](https://github.com/helius-labs/helius-rust-sdk/pull/248) treat an initialized stake account as fully withdrawable ·
+  [#249](https://github.com/helius-labs/helius-rust-sdk/pull/249) decode validity proofs and V2 tree accounts as the indexer sends them
+* **magicblock-labs/magicblock-validator** (Rust)
+  [#1903](https://github.com/magicblock-labs/magicblock-validator/pull/1903) resolve addresses in simulateTransaction inner instructions
 * **relayprotocol/relay-kit** (TypeScript)
+  [#1143](https://github.com/relayprotocol/relay-kit/pull/1143) keep integer zeros in formatNumber ·
   [#1144](https://github.com/relayprotocol/relay-kit/pull/1144) stop signature step polling on failure or refund ·
   [#1145](https://github.com/relayprotocol/relay-kit/pull/1145) fail when a Tron broadcast is rejected ·
   [#1175](https://github.com/relayprotocol/relay-kit/pull/1175) mark the signature step item as failed when the check fails
+* **nansen-ai/nansen-cli** (JavaScript)
+  [#818](https://github.com/nansen-ai/nansen-cli/pull/818) keep the leading zero bytes of the to address in wallet send ·
+  [#822](https://github.com/nansen-ai/nansen-cli/pull/822) rank Privy x402 payment options and skip methods it cannot sign
 * **a16z/jolt** (Rust)
   [#1874](https://github.com/a16z/jolt/pull/1874) make the stack canary check match the linker layout ·
   [#1877](https://github.com/a16z/jolt/pull/1877) resolve ELF symbol names via the symtab's sh_link ·
@@ -45,6 +56,9 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
 **Reported and fixed upstream**
 
 * [ProjectOpenSea/opensea-sdk#2033](https://github.com/ProjectOpenSea/opensea-sdk/issues/2033) batchApproveAssets approved Multicall3 instead of the user when 2 or more approvals were needed
+* [ProjectOpenSea/opensea-sdk#2035](https://github.com/ProjectOpenSea/opensea-sdk/issues/2035) bulkTransfer reverted on every call because its TransferHelper ABI did not match Seaport's
+* [ProjectOpenSea/opensea-sdk#2038](https://github.com/ProjectOpenSea/opensea-sdk/issues/2038) the typed camelize no longer mapped template literal keys that the runtime still converted
+* [genlayerlabs/genvm-executor](https://github.com/genlayerlabs/genvm-executor/issues?q=is%3Aissue+author%3Aerkancamli) six storage, calldata, EVM encoding and schema bugs, all fixed in the v0.4 line
 * [base/base#5182](https://github.com/base/base/issues/5182) baseup swallowed errors raised inside `$(...)`, so a failed install exited with no message
 * [tempoxyz/pympp#370](https://github.com/tempoxyz/pympp/issues/370) client re-encoded the challenge `opaque` instead of echoing it, so issuers that bind the raw string rejected the credential
 * [getoptimum/optimum-gateway#158](https://github.com/getoptimum/optimum-gateway/issues/158) CL pubsub capped at 1 MiB, so larger blocks were dropped
