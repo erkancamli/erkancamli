@@ -4,9 +4,10 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
 
 **Merged fixes**
 
-* **x402-foundation/x402** (TypeScript, Python)
+* **x402-foundation/x402** (TypeScript, Python, Go)
   [#4225](https://github.com/x402-foundation/x402/pull/4225) skip fully charged channels in batch-settlement refunds ·
-  [#4227](https://github.com/x402-foundation/x402/pull/4227) strip the internal Settlement-Overrides header when the handler fails
+  [#4227](https://github.com/x402-foundation/x402/pull/4227) strip the internal Settlement-Overrides header when the handler fails ·
+  [#4243](https://github.com/x402-foundation/x402/pull/4243) make Go SIWS messages without a statement match the TypeScript and Python clients
 * **ProjectOpenSea/seaport-js** (TypeScript)
   [#1057](https://github.com/ProjectOpenSea/seaport-js/pull/1057) pass fulfillOrder extraData to the zone instead of dropping it (landed in [#1058](https://github.com/ProjectOpenSea/seaport-js/pull/1058)) ·
   [#1063](https://github.com/ProjectOpenSea/seaport-js/pull/1063) drop expired orders from a batch fulfill instead of failing it
@@ -17,7 +18,8 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
   [#248](https://github.com/helius-labs/helius-rust-sdk/pull/248) treat an initialized stake account as fully withdrawable ·
   [#249](https://github.com/helius-labs/helius-rust-sdk/pull/249) decode validity proofs and V2 tree accounts as the indexer sends them
 * **magicblock-labs/magicblock-validator** (Rust)
-  [#1903](https://github.com/magicblock-labs/magicblock-validator/pull/1903) resolve addresses in simulateTransaction inner instructions
+  [#1903](https://github.com/magicblock-labs/magicblock-validator/pull/1903) resolve addresses in simulateTransaction inner instructions ·
+  [#1904](https://github.com/magicblock-labs/magicblock-validator/pull/1904) accept a config object as the second getBlocks parameter
 * **relayprotocol/relay-kit** (TypeScript)
   [#1143](https://github.com/relayprotocol/relay-kit/pull/1143) keep integer zeros in formatNumber ·
   [#1144](https://github.com/relayprotocol/relay-kit/pull/1144) stop signature step polling on failure or refund ·
@@ -71,6 +73,7 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
 
 * [wevm/viem#5436](https://github.com/wevm/viem/pull/5436): ENSIP-11 EVM coin types still lost the leading zeros of an address; the fix was extended to them in [#5442](https://github.com/wevm/viem/pull/5442)
 * [wevm/ox#502](https://github.com/wevm/ox/pull/502): an indexed bytes32 argument skipped the length check and short values were padded; fixed before it landed in [#588](https://github.com/wevm/ox/pull/588)
+* [x402-foundation/x402#4240](https://github.com/x402-foundation/x402/issues/4240): afterVerify hook errors were dropped silently in Go and raised in Python while TypeScript logs and continues; both aligned in [#4249](https://github.com/x402-foundation/x402/pull/4249)
 
 **Writing**
 
