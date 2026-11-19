@@ -2,12 +2,22 @@
 
 Onchain analyst and content strategist. Most of my code time goes into finding and fixing bugs in Web3 protocol repositories, each one with a failing test first.
 
+**Security**
+
+* [GHSA-5cgh-j82v-jvrj](https://github.com/x402-foundation/x402/security/advisories/GHSA-5cgh-j82v-jvrj) (x402, Moderate, credited reporter): the batch-settlement voucher verifiers in the TypeScript, Go and Python SDKs accepted high-s and v = 0/1 signatures that x402BatchSettlement cannot recover, so a payer could be served and leave the receiver with a voucher whose claim reverts. Reported privately with a fix and tests; fixed in [#4316](https://github.com/x402-foundation/x402/pull/4316) (co-author)
+
 **Merged fixes**
 
 * **x402-foundation/x402** (TypeScript, Python, Go)
   [#4225](https://github.com/x402-foundation/x402/pull/4225) skip fully charged channels in batch-settlement refunds ·
   [#4227](https://github.com/x402-foundation/x402/pull/4227) strip the internal Settlement-Overrides header when the handler fails ·
-  [#4243](https://github.com/x402-foundation/x402/pull/4243) make Go SIWS messages without a statement match the TypeScript and Python clients
+  [#4243](https://github.com/x402-foundation/x402/pull/4243) make Go SIWS messages without a statement match the TypeScript and Python clients ·
+  [#4272](https://github.com/x402-foundation/x402/pull/4272) checksum the SIWE account address so cross-SDK sign-in verifies
+* **ethereum/execution-specs** (Python)
+  [#3760](https://github.com/ethereum/execution-specs/pull/3760) keep base fee change gas within the parent gas limit ·
+  [#3951](https://github.com/ethereum/execution-specs/pull/3951) resolve `--state.fork BPO4` to the bpo4 module
+* **foundry-rs/foundry** (Rust)
+  [#17509](https://github.com/foundry-rs/foundry/pull/17509) forge fmt: drop the underscores left by zero trimming
 * **ProjectOpenSea/seaport-js** (TypeScript)
   [#1057](https://github.com/ProjectOpenSea/seaport-js/pull/1057) pass fulfillOrder extraData to the zone instead of dropping it (landed in [#1058](https://github.com/ProjectOpenSea/seaport-js/pull/1058)) ·
   [#1063](https://github.com/ProjectOpenSea/seaport-js/pull/1063) drop expired orders from a batch fulfill instead of failing it
@@ -19,7 +29,16 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
   [#249](https://github.com/helius-labs/helius-rust-sdk/pull/249) decode validity proofs and V2 tree accounts as the indexer sends them
 * **magicblock-labs/magicblock-validator** (Rust)
   [#1903](https://github.com/magicblock-labs/magicblock-validator/pull/1903) resolve addresses in simulateTransaction inner instructions ·
-  [#1904](https://github.com/magicblock-labs/magicblock-validator/pull/1904) accept a config object as the second getBlocks parameter
+  [#1904](https://github.com/magicblock-labs/magicblock-validator/pull/1904) accept a config object as the second getBlocks parameter ·
+  [#1837](https://github.com/magicblock-labs/magicblock-validator/pull/1837) omit empty inner instruction groups
+* **tetherto/wdk-utils** (JavaScript)
+  [#64](https://github.com/tetherto/wdk-utils/pull/64) accept regtest segwit v0 addresses and reject witness versions above 16 ·
+  [#66](https://github.com/tetherto/wdk-utils/pull/66) use the lntbs prefix for signet invoices
+* **canton-network/wallet** (TypeScript)
+  [#2945](https://github.com/canton-network/wallet/pull/2945) keep the party hint when registering on additional synchronizers
+* **StartaleGroup/scs-aa-sdk** (TypeScript)
+  [#52](https://github.com/StartaleGroup/scs-aa-sdk/pull/52) ·
+  [#58](https://github.com/StartaleGroup/scs-aa-sdk/pull/58) pass ERC-7579 module data on install and build deInitData per module type on uninstall
 * **relayprotocol/relay-kit** (TypeScript)
   [#1143](https://github.com/relayprotocol/relay-kit/pull/1143) keep integer zeros in formatNumber ·
   [#1144](https://github.com/relayprotocol/relay-kit/pull/1144) stop signature step polling on failure or refund ·
@@ -43,15 +62,16 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
   [#402](https://github.com/FhenixProtocol/cofhesdk/pull/402) ·
   [#403](https://github.com/FhenixProtocol/cofhesdk/pull/403) ·
   [#464](https://github.com/FhenixProtocol/cofhesdk/pull/464) ·
-  [#482](https://github.com/FhenixProtocol/cofhesdk/pull/482) mocks and SDK checks brought in line with the on-chain TaskManager
+  [#482](https://github.com/FhenixProtocol/cofhesdk/pull/482) ·
+  [#463](https://github.com/FhenixProtocol/cofhesdk/pull/463) mocks and SDK checks brought in line with the on-chain TaskManager and coprocessor
 * **wevm/viem** (TypeScript)
   [#5239](https://github.com/wevm/viem/pull/5239) substitute ERC-1155 token ID as hex in getEnsAvatar metadata URIs ·
   [#5244](https://github.com/wevm/viem/pull/5244) guard consumed nonce 0 in the nonceManager stale-source check ·
-  [#5367](https://github.com/wevm/viem/pull/5367) accept an EIP-7702 authorization yParity above 1 in parseTransaction (landed in [#5371](https://github.com/wevm/viem/pull/5371))
+  [#5367](https://github.com/wevm/viem/pull/5367) accept an EIP-7702 authorization yParity above 1 in parseTransaction (landed in [#5371](https://github.com/wevm/viem/pull/5371)) ·
+  [#5508](https://github.com/wevm/viem/pull/5508) include present domain fields in the derived EIP-712 domain type ·
+  [#5487](https://github.com/wevm/viem/pull/5487) order the ERC-7739 wrapped contents type like the TypedDataSign type (landed in [#5583](https://github.com/wevm/viem/pull/5583), viem 2.58.1)
 * **wevm/ox** (TypeScript)
   [#574](https://github.com/wevm/ox/pull/574) keep the EIP-7702 initCode marker in UserOperation.toPacked (landed in [#593](https://github.com/wevm/ox/pull/593))
-* **ethereum/execution-specs** (Python)
-  [#3760](https://github.com/ethereum/execution-specs/pull/3760) keep base fee change gas within the parent gas limit
 * **flop-labs/technocore-chat** (Python)
   [#892](https://github.com/flop-labs/technocore-chat/pull/892) send if_absent as a JSON boolean from the WebMCP write_note tool
 
@@ -73,6 +93,7 @@ Onchain analyst and content strategist. Most of my code time goes into finding a
 
 * [wevm/viem#5436](https://github.com/wevm/viem/pull/5436): ENSIP-11 EVM coin types still lost the leading zeros of an address; the fix was extended to them in [#5442](https://github.com/wevm/viem/pull/5442)
 * [wevm/ox#502](https://github.com/wevm/ox/pull/502): an indexed bytes32 argument skipped the length check and short values were padded; fixed before it landed in [#588](https://github.com/wevm/ox/pull/588)
+* [ethereum/go-ethereum#36153](https://github.com/ethereum/go-ethereum/pull/36153): showed on two dev nodes that `eth_sendRawTransaction` already rejected blobless blob transactions and the change only matters on the eth/72 buffer path; the author narrowed the PR to that before approval
 * [x402-foundation/x402#4240](https://github.com/x402-foundation/x402/issues/4240): afterVerify hook errors were dropped silently in Go and raised in Python while TypeScript logs and continues; both aligned in [#4249](https://github.com/x402-foundation/x402/pull/4249)
 
 **Writing**
